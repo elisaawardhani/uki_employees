@@ -1,28 +1,33 @@
 const express = require('express')
 const app = express()
-const port = 3000
 const mongoose = require('mongoose')
+const cors = require('cors')
+require('dotenv').config()
 
-async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/uki');
-}
+const employeeRoutes = require('./src/routes/employeeRoutes')
 
-main()
+app.use(cors())
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
+
+const PORT = process.env.PORT || 3000
+mongoose.connect(process.env.MONGODB_URI)
+.then(() => console.log('Connected to MongoDB'))
+.catch(err => console.error('MongoDB connection error.', err))
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.get('/api/employees', (req, res) => {
-    
-  res.json({"note":"get all employees"})
-})
+app.use('/api/employees', employeeRoutes)
 
-app.post('/api/employees', (req, res) => {
-    console.log(req.body)
-  res.json({"note":"Add employee"})
-})
+// app.use('/*', (req, res) => {
+//     res.status(404).json({
+//         success: false,
+//         message: 'Endpoint not found'
+//     })
+// })
 
-app.listen(port, () => {
-  console.log(`UKI Employees app listening on port ${port}`)
+app.listen(PORT, () => {
+  console.log(`UKI Employees app running on port ${PORT}`)
 })
