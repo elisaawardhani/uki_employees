@@ -21,13 +21,6 @@ app.get('/', (req, res) => {
 
 app.use('/api/employees', employeeRoutes)
 
-// app.use('/*', (req, res) => {
-//     res.status(404).json({
-//         success: false,
-//         message: 'Endpoint not found'
-//     })
-// })
-
 app.listen(PORT, () => {
   console.log(`UKI Employees app running on port ${PORT}`)
 })
