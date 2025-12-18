@@ -1,19 +1,19 @@
 <h1 class="content-title">Edit Employee</h1>
 <button class="back-to-home" [routerLink]="['/home']">Back</button>
-<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" #form>
+<form *ngIf="employee" [formGroup]="employeeForm" (ngSubmit)="onSubmit()" #form>
   <div class="form-group">
     <label for="employeeId">ID</label>
-    <input type="text" id="employeeId" name="employeeId" formControlName="id">
+    <input type="text" id="employeeId" name="employeeId" formControlName="id" value="{{ employee.id }}">
   </div>
 
   <div class="form-group">
     <label for="employeeName">Name</label>
-    <input type="text" id="employeeName" name="employeeName" formControlName="name">
+    <input type="text" id="employeeName" name="employeeName" formControlName="name" value="{{ employee.name }}">
   </div>
 
   <div class="form-group">
     <label for="employeeDepartment">Department</label>
-    <input type="text" id="employeeDepartment" name="employeeDepartment" formControlName="department">
+    <input type="text" id="employeeDepartment" name="employeeDepartment" formControlName="department" value="{{ employee.department }}">
   </div>
 
   <button class="submit-button" type="submit">Submit</button>

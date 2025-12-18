@@ -6,6 +6,7 @@ import { EditEmployeeComponent } from './pages/edit-employee/edit-employee.compo
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'edit-employee', component: EditEmployeeComponent },
+  { path: 'edit-employee/:id', component: EditEmployeeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 
