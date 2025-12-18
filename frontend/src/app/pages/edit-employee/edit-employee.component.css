@@ -1,0 +1,35 @@
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.submit-button {
+    background-color: cadetblue;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    font-weight: bold;
+    font-size: 15px;
+    width: 45%;
+    margin-top: 15px;
+}
+
+.submit-button:hover {
+    background-color: rgba(74, 121, 123);
+}
+
+.delete-button {
+    background-color: crimson;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    font-weight: bold;
+    font-size: 15px;
+    width: 45%;
+    margin-top: 15px;
+}
+
+.delete-button:hover {
+    background-color: rgb(182, 16, 49);
+}

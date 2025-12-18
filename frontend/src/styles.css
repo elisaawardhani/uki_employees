@@ -51,18 +51,3 @@ form input {
 form input:focus {
     outline: 2px solid cadetblue;
 }
-
-form button {
-    background-color: cadetblue;
-    color: white;
-    border: none;
-    padding: 15px 20px;
-    font-weight: bold;
-    font-size: 15px;
-    width: 100%;
-    margin-top: 15px;
-}
-
-form button:hover {
-    background-color: rgba(74, 121, 123);
-}

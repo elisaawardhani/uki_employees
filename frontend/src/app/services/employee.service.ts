@@ -21,10 +21,14 @@ export class EmployeeService {
   }
 
   addEmployee(employee:Employee): Observable<Response<any>> {
-    console.log(employee)
     return this.http.post<Response<any>>(this.apiUrl, employee)
   }
 
-  // editEmployee()
+  editEmployee(id:string, employee:Employee): Observable<Response<any>> {
+    return this.http.put<Response<any>>(`${this.apiUrl}/${id}`, employee)
+  }
 
+  deleteEmployee(id:string): Observable<Response<any>> {
+    return this.http.delete<Response<any>>(`${this.apiUrl}/${id}`)
+  }
 }

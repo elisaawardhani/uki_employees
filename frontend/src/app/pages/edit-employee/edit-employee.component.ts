@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Employee } from 'src/app/models/employee';
 import { EmployeeService } from 'src/app/services/employee.service';
 
@@ -18,17 +18,24 @@ export class EditEmployeeComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private employeeService: EmployeeService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
+    this.employeeForm = new FormGroup({
+      id: new FormControl(),
+      name: new FormControl(),
+      department: new FormControl()
+    });
+
     this.employeeId = this.route.snapshot.paramMap.get('id');
     if (this.employeeId != null) {
       this.loadEmployee(this.employeeId)
     }
 
     this.employeeForm = new FormGroup({
-      id: new FormControl(),
+      id: new FormControl({value: '', disabled: this.employeeId}),
       name: new FormControl(),
       department: new FormControl()
     });
@@ -38,7 +45,7 @@ export class EditEmployeeComponent implements OnInit {
     this.employeeService.getEmployee(id).subscribe({
       next: (response) => {
         this.employee = response.data
-        console.log('Employee name ', response.data)
+        this.employeeForm.patchValue(this.employee);
       },
       error: (error) => {
         this.errorMessage = 'Failed to load employee data.'
@@ -48,12 +55,37 @@ export class EditEmployeeComponent implements OnInit {
 
   onSubmit(): void {
     const employee = this.employeeForm.value
-    this.employeeService.addEmployee(employee as Employee).subscribe({
+    if (this.employeeId != null) {
+      this.employeeService.editEmployee(this.employeeId, employee as Employee).subscribe({
+        next: (response) => {
+          alert("Employee Data Edited Successfully.")
+          this.router.navigate(['/home'])
+        },
+        error: (error) => {
+          alert("Failed to Edit Employee Data.")
+        }
+      })
+    } else {
+      this.employeeService.addEmployee(employee as Employee).subscribe({
+        next: (response) => {
+          alert("Employee Data Added Successfully.")
+          this.employeeForm.reset();
+        },
+        error: (error) => {
+          alert("Failed to Add Employee Data.")
+        }
+      })
+    }
+  }
+
+  deleteEmployee(id: string): void {
+    this.employeeService.deleteEmployee(id).subscribe({
       next: (response) => {
-        alert("Employee Added Successfully.")
+        alert("Employee Data Deleted Successfully.")
+        this.router.navigate(['/home'])
       },
       error: (error) => {
-        alert("Failed to Add Employee.")
+        this.errorMessage = 'Failed to Delete Employee Data.'
       }
     })
   }
