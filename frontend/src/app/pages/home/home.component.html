@@ -10,16 +10,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>E01</td>
-      <td>James Fowler</td>
-      <td>Finance</td>
-      <td><button>Edit</button></td>
-    </tr>
-    <tr>
-      <td>E02</td>
-      <td>John Green</td>
-      <td>Technology</td>
+    <tr *ngFor="let employee of employees">
+      <td>{{ employee.id }}</td>
+      <td>{{ employee.name }}</td>
+      <td>{{ employee.department }}</td>
       <td><button>Edit</button></td>
     </tr>
   </tbody>
