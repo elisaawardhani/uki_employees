@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=BBH+Bartle&family=BBH+Hegarty&display=swap');
 
-body {
+.header-container {
     border-style: dashed;
     border-width: 5px;
     border-color: cadetblue;
 }
 
-body h1 {
+h1 {
     display: flex;
     justify-content: center;
     align-items: center;

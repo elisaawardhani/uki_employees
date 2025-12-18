@@ -1,0 +1,25 @@
+.app-container {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "content"
+        "footer";
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    background-color: dodgerblue;
+}
+
+app-header {
+    grid-area: header;
+}
+
+.main-content {
+    grid-area: content;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+app-footer {
+  grid-area: footer;
+}
