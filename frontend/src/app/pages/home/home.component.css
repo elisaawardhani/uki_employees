@@ -19,26 +19,31 @@
     border-collapse: collapse;
     margin-top: 25px;
     width: 100%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .employees-table th, td {
   padding: 8px;
 }
 
-tr:nth-child(odd){
+.employees-table tr:nth-child(odd){
     background-color: rgba(223, 243, 243, 0.81);
 }
 
-tr:nth-child(even){
+.employees-table tr:nth-child(even){
     background-color: rgba(197, 221, 221, 0.81);
 }
 
-th {
+.employees-table th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
   background-color: cadetblue;
   color: white;
+}
+
+.employees-table tr {
+    color: dimgrey;
 }
 
 .employees-table button {
