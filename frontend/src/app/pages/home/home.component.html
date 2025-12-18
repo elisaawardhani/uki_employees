@@ -1,5 +1,5 @@
 <h1 class="content-title">Employee List</h1>
-<button class="add-employee">+ New Employee</button>
+<button class="add-employee" [routerLink]="['/edit-employee']">+ New Employee</button>
 <table class="employees-table">
   <thead>
     <tr>
@@ -14,7 +14,7 @@
       <td>{{ employee.id }}</td>
       <td>{{ employee.name }}</td>
       <td>{{ employee.department }}</td>
-      <td><button>Edit</button></td>
+      <td><button [routerLink]="['/edit-employee', employee.id]">Edit</button></td>
     </tr>
   </tbody>
 </table>

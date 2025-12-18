@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=BBH+Bartle&family=BBH+Hegarty&display=swap');
+
 .add-employee {
     background-color: lightpink;
     color: white;
     border: none;
     padding: 15px 20px;
-    font-weight: bold;
+    font-family: "BBH Hegarty", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     font-size: 15px;
 }
 
