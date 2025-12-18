@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=BBH+Bartle&family=BBH+Hegarty&display=swap');
+
+.home-title {
+    font-family: "BBH Hegarty", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color:dimgrey;
+}
+
+.add-employee {
+    background-color: lightpink;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.add-employee:hover {
+    background-color: rgba(219, 155, 165, 0.81);
+}
+
+.employees-table {
+    border-collapse: collapse;
+    margin-top: 25px;
+    width: 100%;
+}
+
+.employees-table th, td {
+  padding: 8px;
+}
+
+tr:nth-child(odd){
+    background-color: rgba(223, 243, 243, 0.81);
+}
+
+tr:nth-child(even){
+    background-color: rgba(197, 221, 221, 0.81);
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: cadetblue;
+  color: white;
+}
+
+.employees-table button {
+    width: 100%;
+    background-color: lightpink;
+    color: white;
+    border: none;
+    padding: 8px 0;
+    font-weight: bold;
+}
+
+.employees-table button:hover {
+    background-color: rgba(219, 155, 165, 0.81);
+}
