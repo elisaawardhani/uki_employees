@@ -1,7 +1,5 @@
-import { Employee } from "./employee";
-
-export interface Response {
+export interface Response<T> {
     success: string;
     message: string;
-    data: Employee[]
+    data: T
 }
