@@ -1,3 +1,20 @@
-<p>
-  edit-employee works!
-</p>
+<h1 class="content-title">Edit Employee</h1>
+<button class="back-to-home">Back</button>
+<form (ngSubmit)="handleSubmit($event)" #form>
+  <div class="form-group">
+    <label for="employeeId">ID</label>
+    <input type="text" id="employeeId" name="employeeId" disabled>
+  </div>
+
+  <div class="form-group">
+    <label for="employeeName">Name</label>
+    <input type="text" id="employeeName" name="employeeName">
+  </div>
+
+  <div class="form-group">
+    <label for="employeeDepartment">Department</label>
+    <input type="text" id="employeeDepartment" name="employeeDepartment">
+  </div>
+
+  <button class="submit-button" type="submit">Submit</button>
+</form>
