@@ -12,7 +12,6 @@ import { EmployeeService } from 'src/app/services/employee.service';
 export class EditEmployeeComponent implements OnInit {
   employeeForm:FormGroup
   employee: Employee
-  errorMessage: string = ''
   employeeId: string
 
   constructor(
@@ -48,7 +47,7 @@ export class EditEmployeeComponent implements OnInit {
         this.employeeForm.patchValue(this.employee);
       },
       error: (error) => {
-        this.errorMessage = 'Failed to load employee data.'
+        alert("Error: "+error.error.message)
       }
     })
   }
@@ -58,21 +57,21 @@ export class EditEmployeeComponent implements OnInit {
     if (this.employeeId != null) {
       this.employeeService.editEmployee(this.employeeId, employee as Employee).subscribe({
         next: (response) => {
-          alert("Employee Data Edited Successfully.")
+          alert(response.message)
           this.router.navigate(['/home'])
         },
         error: (error) => {
-          alert("Failed to Edit Employee Data.")
+          alert("Error: "+error.error.message)
         }
       })
     } else {
       this.employeeService.addEmployee(employee as Employee).subscribe({
         next: (response) => {
-          alert("Employee Data Added Successfully.")
+          alert(response.message)
           this.employeeForm.reset();
         },
         error: (error) => {
-          alert("Failed to Add Employee Data.")
+          alert("Error: "+error.error.message)
         }
       })
     }
@@ -81,11 +80,11 @@ export class EditEmployeeComponent implements OnInit {
   deleteEmployee(id: string): void {
     this.employeeService.deleteEmployee(id).subscribe({
       next: (response) => {
-        alert("Employee Data Deleted Successfully.")
+        alert(response.message)
         this.router.navigate(['/home'])
       },
       error: (error) => {
-        this.errorMessage = 'Failed to Delete Employee Data.'
+        alert("Error: "+error.error.message)
       }
     })
   }
