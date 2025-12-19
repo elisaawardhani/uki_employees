@@ -16,7 +16,7 @@ How to Run:
 
 
 ```bash
-  git clone https://github.com/elisa/uki-employee
+  git clone https://github.com/elisaawardhani/uki_employees
 ```
 
 2. Run Backend:
